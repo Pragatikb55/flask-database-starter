@@ -54,6 +54,17 @@ def add_student():
         course = request.form['course']
 
         conn = get_db_connection()
+
+        existing_student = conn.execute(
+            "SELECT * FROM students WHERE email = ?",
+            (email,)
+        ).fetchone()
+
+        if existing_student:
+            conn.close()
+            flash('Email already exists!', 'danger')
+            return render_template('add.html')
+        
         conn.execute(
             'INSERT INTO students (name, email, course) VALUES (?, ?, ?)',
             (name, email, course)
@@ -122,10 +133,43 @@ def delete_student(id):
     flash('Student deleted!', 'danger')  # Show delete message
     return redirect(url_for('index'))
 
+# =============================================================================
+# SEARCH : STUDENT DATA
+# =============================================================================
+
+@app.route('/search-page')
+def search_page():
+    return render_template('search.html')
+
+@app.route('/search', methods=['GET'])
+def search():
+    student_name = request.args.get('student_name')
+
+    if not student_name:
+        return render_template('search.html')
+
+    conn = get_db_connection()
+    students = conn.execute(
+        "SELECT * FROM students WHERE name LIKE ?",
+        ('%' + student_name + '%',)
+    ).fetchall()
+    conn.close()
+
+    if not students:
+        return render_template(
+            'search.html',
+            message="Student not found"
+        )
+
+    return render_template('search.html', students=students)
+
+
 
 if __name__ == '__main__':
     init_db()
     app.run(debug=True)
+
+
 
 
 # =============================================================================

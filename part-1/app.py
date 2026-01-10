@@ -65,10 +65,11 @@ def add_sample_student():
     conn = get_db_connection()
     conn.execute(
         'INSERT INTO students (name, email, course) VALUES (?, ?, ?)',
-        ('John Doe', 'john@example.com', 'Python')  # ? are placeholders (safe from SQL injection)
+        ('Megha Shinde', 'megha@example.com', 'Flask')  # ? are placeholders (safe from SQL injection)
     )
     conn.commit()  # Don't forget to commit!
     conn.close()
+    
     return 'Student added! <a href="/">Go back to home</a>'
 
 
