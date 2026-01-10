@@ -23,12 +23,7 @@
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
         {% for category, message in messages %}
-            <div style="
-                padding:10px;
-                margin-bottom:15px;
-                color:white;
-                background-color:{% if category == 'danger' %}#f44336{% else %}#4CAF50{% endif %};
-                border-radius:5px;">
+            <div class="flash{{category}}">
                 {{ message }}
             </div>
         {% endfor %}
