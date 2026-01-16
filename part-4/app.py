@@ -344,8 +344,20 @@ if __name__ == '__main__':
 # EXERCISE:
 # =============================================================================
 #
-# 1. Add pagination: `/api/books?page=1&per_page=10`
-# 2. Add sorting: `/api/books?sort=title&order=desc`
-# 3. Create a simple frontend using JavaScript fetch()
+# 1. Create new class say "Author" with fields id, name, bio, city with its table. 
+# Write all CRUD api routes for it similar to Book class.
+# Additionally try to link Book and Author class such that each book has one author and one author can have multiple books.
+
+# 1. Create 2 simple frontend using JavaScript fetch()
+# This is a bigger exercise. Create a frontend in HTML and JS that uses all api routes and displays data dynamically, along with create/edit/delete functionality.
+# Since the API is through n through accessible on the computer/server, you don't need to use render_template from flask, instead, 
+# you can directly use ipaddress:portnumber/apiroute from any where. So your HTML JS code can be anywhere on computer (not necessarily in flask)  
+
+# 3. Add pagination: `/api/books?page=1&per_page=10` 
+# Hint - the sqlalchemy provides paginate method. 
+# OPTIONAL - For ease of understanding, create a new api say /api/books-with-pagination which takes page number and number of books per page
+
+# 4. Add sorting: `/api/books?sort=title&order=desc`
+# OPTIONAL - For ease of understanding, create a new api say /api/books-with-sorting
 #
 # =============================================================================
