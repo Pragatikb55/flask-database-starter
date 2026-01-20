@@ -1,0 +1,56 @@
+body {
+    background: #0f172a;
+    color: white;
+    font-family: Arial;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+h1 {
+    color: #ff4d6d;
+    border-bottom: 2px solid #ff4d6d;
+}
+
+.card {
+    background: #111827;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+input, select {
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    padding: 10px;
+    background: #22c55e;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #334155;
+}
+
+.delete {
+    background: #ef4444;
+    padding: 6px 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
